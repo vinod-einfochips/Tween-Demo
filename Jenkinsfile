@@ -5,7 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Add build steps here
+                // Ensure Jenkins user has sudo privileges without password for these commands
+                sh """
+                    sudo cp -r /var/lib/jenkins/workspace/Tween-App/* /var/www/html/
+                    sudo systemctl restart apache2
+                """
             }
         }
         stage('Test') {
