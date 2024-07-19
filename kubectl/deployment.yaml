@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tween-web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tween-web-app
+  template:
+    metadata:
+      labels:
+        app: tween-web-app
+    spec:
+      containers:
+      - name: tween-web-app
+        image: vinodeinfochips/tween-demo:1.0
+        ports:
+        - containerPort: 80
