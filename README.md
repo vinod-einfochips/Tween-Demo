@@ -29,7 +29,13 @@ kubectl apply -f ingress.yaml
 ```
 kubectl apply -f ingress.yaml
 ```
-7. Update /etc/hosts:
+7. Update /etc/hosts
+```
+minikube ip
+```
+```
+sudo nano /etc/hosts
+``` 
 Add the following line to your /etc/hosts file
 ```
 127.0.0.1 tween-web-app.local
@@ -51,6 +57,7 @@ hey -z 1m -c 10 http://tween-web-app.local
 kubectl get hpa
 ```
 12. Access the Application
+
 Open a browser and navigate to http://tween-web-app.local , You should see your tween web application.
 ```
 minikube service static-web-app-service --url
